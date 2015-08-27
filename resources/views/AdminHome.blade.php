@@ -11,6 +11,9 @@
 
         <a href="{{ URL('admin/pages/create') }}" class="btn btn-lg btn-primary">新增</a>
 
+                <p>
+                {{$test}}
+                </p>
           @foreach ($pages as $page)
             <hr>
             <div class="page">

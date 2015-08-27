@@ -23,4 +23,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
 {
   Route::get('/', 'AdminHomeController@index');
 });
-Route::any('/*', 'WelcomeController@index');
+Route::any('*', 'WelcomeController@index');
