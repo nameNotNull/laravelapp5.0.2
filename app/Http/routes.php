@@ -23,7 +23,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
 {
   Route::get('/', 'AdminHomeController@index');
 });
-Route::any('/{letter}','WelcomeController@index');
+Route::get('/user', function()
+{
+    abort(404);
+});
+
 
 Route::any('user/{name}', function(){
 	//使用正则表达式限制参数
@@ -42,5 +46,16 @@ Route::get('user/{letter}', function($letter)
 Route::get('user/{id}', function($id)
 {
     // 只有 {id} 是数字才被调用。
-    return $number;
+    return $id;
 });
+Route::group(['domain' => '{account}.lara.com'], function()
+{
+
+    Route::get('user/{id}', function($account, $id)
+    {
+        //
+        return "linode";
+    });
+
+});
+Route::any('/{letter}','WelcomeController@index');
