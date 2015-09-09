@@ -23,7 +23,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
 {
   Route::get('/', 'AdminHomeController@index');
 });
-Route::any('/{name}', function(){
+Route::any('/{letter}','WelcomeController@index');
+
+Route::any('user/{name}', function(){
 	//使用正则表达式限制参数
 	return "any";
 })->where('name', '[A-Za-z]+');;
