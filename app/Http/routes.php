@@ -23,19 +23,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
 {
   Route::get('/', 'AdminHomeController@index');
 });
-Route::get('/user', function()
-{
-    abort(404);
-});
 
 
 Route::any('user/{name}', function(){
 	//使用正则表达式限制参数
+   // dd([1, 2, 3]);
+    dd('aa');
 	return "any";
 })->where('name', '[A-Za-z]+');;
 
 Route::get('user/abc', function()
 {
+
        return "abc";
 });
 Route::get('user/{letter}', function($letter)
