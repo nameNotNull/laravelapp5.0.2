@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Page;
 use DB;
 use Crypt;
+use Mail;
 class AdminHomeController extends Controller {
 
 	/**
@@ -25,10 +26,16 @@ class AdminHomeController extends Controller {
 		var_dump($encrypted);
 		$decrypted = Crypt::decrypt($encrypted);
 		var_dump($decrypted);
-		//return response()->download($pathToFile);
-		 //return view('AdminHome')->withPages(Page::all())->with('test','hello world');
+	//	$data = "test";
+		$data = ['email'=>'wangxuan6@staff.sina.com.cn', 'name'=>'fasong', 'uid'=>'123', 'activationcode'=>'unknown'];
+
+		Mail::send('emails.activemail', $data, function($message) use($data)
+		{
+    		$message->to($data['email'], $data['name'])->subject('欢迎注册我们的网站，请激活您的账号！');
+		});
 	}
 
+	
 	/**
 	 * Show the form for creating a new resource.
 	 *
