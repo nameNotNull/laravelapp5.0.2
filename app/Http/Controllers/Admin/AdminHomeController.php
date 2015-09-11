@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Page;
 use DB;
+use Crypt;
 class AdminHomeController extends Controller {
 
 	/**
@@ -20,7 +21,10 @@ class AdminHomeController extends Controller {
 		$results = DB::select('select * from users where id = ?', [1]);
 		DB::connection()->enableQueryLog();
 		$queries = DB::getQueryLog();
-		var_dump($queries);
+		$encrypted = Crypt::encrypt('secret');
+		var_dump($encrypted);
+		$decrypted = Crypt::decrypt($encrypted);
+		var_dump($decrypted);
 		//return response()->download($pathToFile);
 		 //return view('AdminHome')->withPages(Page::all())->with('test','hello world');
 	}
