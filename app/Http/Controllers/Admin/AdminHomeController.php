@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Page;
+use DB;
 class AdminHomeController extends Controller {
 
 	/**
@@ -16,7 +17,9 @@ class AdminHomeController extends Controller {
 	{
 		//
 		$pathToFile = '/aa.txt';
-		return response()->download($pathToFile);
+		$results = DB::select('select * from users where id = ?', [1]);
+		var_dump($results);
+		//return response()->download($pathToFile);
 		 //return view('AdminHome')->withPages(Page::all())->with('test','hello world');
 	}
 
