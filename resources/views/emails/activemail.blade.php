@@ -5,6 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   </head>
 <body>
-  <a href="" target="_blank">点击激活你的账号</a>
+  <a href="http://namenotnull.sinaapp.com/" target="_blank">点击激活你的账号</a>
 </body>
 </html>
