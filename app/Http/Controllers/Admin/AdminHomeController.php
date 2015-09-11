@@ -18,7 +18,9 @@ class AdminHomeController extends Controller {
 		//
 		$pathToFile = '/aa.txt';
 		$results = DB::select('select * from users where id = ?', [1]);
-		var_dump($results);
+		DB::connection()->enableQueryLog();
+		$queries = DB::getQueryLog();
+		var_dump($queries);
 		//return response()->download($pathToFile);
 		 //return view('AdminHome')->withPages(Page::all())->with('test','hello world');
 	}
